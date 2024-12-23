@@ -1,6 +1,5 @@
 import HelloWorld from "./components/HelloWorld.jsx";
 import DataFetcher from "./components/DataFetcher.jsx";
-import './App.css'
 
 /**
  * Component rules:
