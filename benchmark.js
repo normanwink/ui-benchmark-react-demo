@@ -4,13 +4,14 @@ import { createObjectCsvWriter } from 'csv-writer';
 // config
 const cycles = 500;
 const stableTime = 300;
+const checkInterval = 10;
 const testUrl = 'http://localhost:8080';
 const fileName = 'benchmark-results.csv';
 
 /**
  * Helper to wait until the DOM is stable for `stableTime` ms.
  */
-async function waitForDomStability(page, checkInterval = 200) {
+async function waitForDomStability(page) {
   let lastHTML = null;
   let stableStartTime = null;
 
@@ -76,7 +77,7 @@ async function waitForDomStability(page, checkInterval = 200) {
     }
 
     // Wait for DOM to be stable (some async updates might occur)
-    await waitForDomStability(page, 200);
+    await waitForDomStability(page);
     const domStable = Date.now() - epochStart;
 
     await page.close();
