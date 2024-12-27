@@ -4,16 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"npm run dev\" \"npm run server\"",
+    "start": "concurrently \"npm run dev\" \"npm run json-server\"",
+    "testbench": "concurrently \"npm run serve\" \"npm run json-server\"",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "npx json-server db.json"
+    "json-server": "npx json-server db.json",
+    "serve": "serve -s dist -p 8080",
+    "benchmark": "node benchmark.js"
   },
   "dependencies": {
-    "concurrently": "^9.1.0",
-    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -22,11 +23,16 @@
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "csv-writer": "^1.6.0",
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "json-server": "^1.0.0-beta.3",
     "globals": "^15.13.0",
+    "puppeteer": "^23.11.1",
+    "serve": "^14.2.4",
     "vite": "^6.0.3"
   }
 }
